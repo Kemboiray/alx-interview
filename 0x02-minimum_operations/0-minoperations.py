@@ -24,3 +24,16 @@ def minOperations(n: int) -> int:
             return n
         n //= factors[-1]
     return sum(factors)
+
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) != 2:
+        print(f"Usage: {sys.argv[0]} n")
+        exit(1)
+    try:
+        n = int(sys.argv[1])
+    except ValueError:
+        print("n must be a number")
+        exit(1)
+    print(minOperations(n))
