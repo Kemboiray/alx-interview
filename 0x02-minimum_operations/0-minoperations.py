@@ -11,18 +11,16 @@ or paste into the buffer.
 def minOperations(n: int) -> int:
     """Return the sum of `n`'s prime factors"""
     factors = [0]
-    while n > 1:
-        if n % 2 == 0:
-            factors.append(2)
-        elif n % 3 == 0:
-            factors.append(3)
-        elif n % 5 == 0:
-            factors.append(5)
-        elif n % 7 == 0:
-            factors.append(7)
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
         else:
-            return n
-        n //= factors[-1]
+            n //= i
+            factors.append(i)
+    if n > 1:
+        factors.append(n)
+
     return sum(factors)
 
 
