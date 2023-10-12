@@ -12,7 +12,7 @@ def minOperations(n: int) -> int:
     """Return the sum of `n`'s prime factors"""
     factors = [0]
     i = 2
-    while i * i <= n:
+    while i <= n:
         if n % i:
             i += 1
         else:
