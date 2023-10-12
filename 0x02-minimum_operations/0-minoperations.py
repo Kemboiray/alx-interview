@@ -18,8 +18,6 @@ def minOperations(n: int) -> int:
         else:
             n //= i
             factors.append(i)
-    if n > 1:
-        factors.append(n)
 
     return sum(factors)
 
