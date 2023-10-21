@@ -43,7 +43,7 @@ def log_is_valid(tokens: List[str]) -> bool:
     return True
 
 
-def print_stats(file_size: int, codes_dict: Dict) -> None:
+def print_stats(file_size: int, codes_dict: Dict[str, int]) -> None:
     """Print log statistics """
     print("File size:", file_size)
     for code, count in codes_dict.items():
