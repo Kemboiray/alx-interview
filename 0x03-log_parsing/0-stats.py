@@ -75,11 +75,10 @@ def main() -> None:
             line_no += 1
             if line_no % 10 == 0:
                 print_stats(file_size, codes_dict)
-        if line_no % 10:
+        if line_no % 10 or line_no == 0:
             print_stats(file_size, codes_dict)
     except KeyboardInterrupt:
         print_stats(file_size, codes_dict)
-        # exit(1)
 
 
 if __name__ == "__main__":
