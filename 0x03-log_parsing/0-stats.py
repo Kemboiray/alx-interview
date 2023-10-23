@@ -27,7 +27,7 @@ def log_is_valid(tokens: List[str]) -> bool:
     if tokens[1] != "-":
         return False
     time = " ".join(tokens[2:4])
-    if not time.startswith("[") and time.endswith("]"):
+    if not (time.startswith("[") and time.endswith("]")):
         return False
     try:
         datetime.strptime(time[1:-2], "%Y-%m-%d %H:%M:%S.%f")
