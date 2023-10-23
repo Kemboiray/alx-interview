@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-"""This script reads stdin line by line and computes metrics """
+"""This script reads stdin line by line and computes metrics."""
 
 from typing import Dict, List
 
@@ -44,7 +44,7 @@ def log_is_valid(tokens: List[str]) -> bool:
 
 
 def print_stats(file_size: int, codes_dict: Dict[str, int]) -> None:
-    """Print log statistics """
+    """Print log statistics."""
     print("File size:", file_size)
     for code, count in codes_dict.items():
         if count:
@@ -52,7 +52,7 @@ def print_stats(file_size: int, codes_dict: Dict[str, int]) -> None:
 
 
 def main() -> None:
-    """Entry point """
+    """Entry point."""
     import sys
 
     line_no, file_size = 0, 0
