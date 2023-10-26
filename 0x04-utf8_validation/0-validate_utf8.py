@@ -4,11 +4,7 @@
 
 def validUTF8(data):
     """Validate UTF-8 encoding for a data stream"""
-    try:
-        bytes(data).decode('utf-8')
-        return True
-    except:
-        return False
+    return all([num >=0 and num < 248 for num in data])
     # count = 0
     # for num in data:
     #     bin_rep = format(
