@@ -9,7 +9,7 @@ def validUTF8(data):
     try:
         bytes(data).decode('utf-8')
         return True
-    except:
+    except Exception:
         return False
     # count = 0
     # for num in data:
