@@ -23,6 +23,7 @@
 #         count -= 1
 #     return count == 0
 def validUTF8(data):
+    """Validate UTF-8 encoding for a data stream"""
     bin_reps = [format(d, '#010b').removeprefix('0b') for d in data]
     return all([
         len(b) == 8 and (b.startswith('0') or b.startswith('110')
