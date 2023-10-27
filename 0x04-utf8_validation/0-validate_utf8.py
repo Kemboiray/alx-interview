@@ -16,6 +16,7 @@ def validUTF8(data):
     except (OverflowError, TypeError, UnicodeDecodeError, ValueError):
         return False
 
+
 if __name__ == "__main__":
     data = [467, 133, 108]
     print(validUTF8(data))
