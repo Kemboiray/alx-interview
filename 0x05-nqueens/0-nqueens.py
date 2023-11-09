@@ -2,6 +2,7 @@
 """Thes module defines a solution to the `N-queens` problem"""
 
 import sys
+from typing import List
 
 
 def validate():
@@ -20,12 +21,24 @@ def validate():
     return n
 
 
+def nqueens(n: int) -> List:
+    """Generate a solution to `N-queens` puzzle"""
+    board, used_columns, i = [], set(), 0
+    for j in range(n):
+        if j not in used_columns:
+            board.append([i, j])
+            i += 1
+        used_columns.add(j)
+    print(used_columns)
+    return board
+
+
 def main():
     """Begin program execution"""
     n = validate()
     if n == 1:
         sys.exit(1)
-    pass
+    print(nqueens(n))
 
 
 if __name__ == "__main__":
