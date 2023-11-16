@@ -9,7 +9,7 @@ Given an n x n 2D matrix, rotate it 90 degrees clockwise.
 # import typing as t
 
 
-def rotate_2d_matrix(matrix: list[list[int]]) -> None:
+def rotate_2d_matrix(matrix):
     """Rotate a 2D matrix 90 degrees clockwise in place."""
     size = len(matrix)
     copy = [[matrix[row][col] for col in range(size)] for row in range(size)]
