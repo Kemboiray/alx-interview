@@ -9,12 +9,27 @@ def island_perimeter(grid):
         """
         Return the number of neighbours bordering the element ``grid[i][j]``
         """
-        return sum(
-            [grid[i - 1][j], grid[i][j - 1], grid[i + 1][j], grid[i][j + 1]])
+        if i == 0:
+            up = 0
+        else:
+            up = grid[i - 1][j]
+        if i == len(grid) - 1:
+            down = 0
+        else:
+            down = grid[i + 1][j]
+        if j == 0:
+            left = 0
+        else:
+            left = grid[i][j - 1]
+        if j == len(grid[i]) - 1:
+            right = 0
+        else:
+            right = grid[i][j + 1]
+        return sum([up, down, left, right])
 
-    i, perimeter = 1, 0
+    i, perimeter = 0, 0
     while i < len(grid):
-        j = 1
+        j = 0
         while j < len(grid[i]):
             # print(f"Iteration: grid[{i}][{j}]")
             if grid[i][j] == 1:
