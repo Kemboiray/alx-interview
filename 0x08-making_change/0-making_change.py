@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""This module defines a solution to the making change problem."""
+"""
+This module defines a solution to the making change problem.
+
+See README.md.
+"""
 
 
 def makeChange(coins: list, total: int) -> int:
