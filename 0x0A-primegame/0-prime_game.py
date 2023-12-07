@@ -2,7 +2,7 @@
 """This file defines a solution to the Prime Game problem."""
 
 
-def is_prime(n: int) -> bool:
+def is_prime(n):
     """Return whether or not `n` is a prime number"""
     if n <= 1:
         return False
@@ -18,7 +18,7 @@ def is_prime(n: int) -> bool:
     return True
 
 
-def isWinner(x: int, nums: list):
+def isWinner(x, nums):
     """Return the winner of the game or None."""
     tally = {}
     for round in nums:
