@@ -18,18 +18,21 @@ def isWinner(x, nums):
     """Return the winner of the game or None."""
     tally = {}
     for round in nums:
-        collection = list(range(1, round + 1))
-        primes = [i for i in collection if is_prime(i)]
-        last_success = "Ben"
-        for n in primes:
-            if n in collection:
-                fact = n
-                last = max(collection)
-                while fact <= last:
-                    collection.remove(fact)
-                    fact += n
-                last_success = "Ben" if primes.index(n) % 2 else "Maria"
-        tally[round] = last_success
+        if round == 1:
+            tally[round] = "Ben"
+        else:
+            collection = list(range(1, round + 1))
+            primes = [i for i in collection if is_prime(i)]
+            for n in primes:
+                if n in collection:
+                    fact = n
+                    last = max(collection)
+                    while fact <= last:
+                        if fact in collection:
+                            collection.remove(fact)
+                        fact += n
+                    last_success = "Ben" if primes.index(n) % 2 else "Maria"
+            tally[round] = last_success
 
     maria_wins = len([val for val in tally.values() if val == "Maria"])
     ben_wins = len([val for val in tally.values() if val == "Ben"])
