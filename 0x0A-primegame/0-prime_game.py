@@ -16,28 +16,19 @@ def is_prime(n):
 
 def isWinner(x, nums):
     """Return the winner of the game or None."""
-    tally = {}
-    for round in nums:
-        if round == 1:
-            tally[round] = "Ben"
+    wins = []
+    for round in range(x):
+        n = nums[round]
+        if n == 1:
+            wins.append("Ben")
         else:
-            collection = list(range(1, round + 1))
-            primes = [i for i in collection if is_prime(i)]
-            for n in primes:
-                if n in collection:
-                    fact = n
-                    last = max(collection)
-                    while fact <= last:
-                        if fact in collection:
-                            collection.remove(fact)
-                        fact += n
-                    last_success = "Ben" if primes.index(n) % 2 else "Maria"
-            tally[round] = last_success
-
-    maria_wins = len([val for val in tally.values() if val == "Maria"])
-    ben_wins = len([val for val in tally.values() if val == "Ben"])
-
+            primes = [i for i in range(1, n+1) if is_prime(i)]
+            if len(primes) % 2:
+                wins.append("Maria")
+            else:
+                wins.append("Ben")
+    ben_wins, maria_wins = wins.count("Ben"), wins.count("Maria")
+    if ben_wins > maria_wins:
+        return "Ben"
     if maria_wins > ben_wins:
         return "Maria"
-    elif ben_wins > maria_wins:
-        return "Ben"
