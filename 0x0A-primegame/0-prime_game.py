@@ -19,7 +19,9 @@ def isWinner(x, nums):
     wins = []
     for round in range(x):
         n = nums[round]
-        if n == 1:
+        if n == 0:
+            wins.append("Maria")
+        elif n == 1:
             wins.append("Ben")
         else:
             primes = [i for i in range(1, n+1) if is_prime(i)]
