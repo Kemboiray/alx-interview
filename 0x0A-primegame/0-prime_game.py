@@ -16,21 +16,20 @@ def is_prime(n):
 
 def isWinner(x, nums):
     """Return the winner of the game or None."""
-    wins = []
+    ben, maria = 0, 0
     for round in range(x):
         n = nums[round]
         if n == 0:
-            wins.append("Maria")
+            maria += 1
         elif n == 1:
-            wins.append("Ben")
+            ben += 1
         else:
             primes = [i for i in range(1, n+1) if is_prime(i)]
             if len(primes) % 2:
-                wins.append("Maria")
+                maria += 1
             else:
-                wins.append("Ben")
-    ben_wins, maria_wins = wins.count("Ben"), wins.count("Maria")
-    if ben_wins > maria_wins:
+                ben += 1
+    if ben > maria:
         return "Ben"
-    if maria_wins > ben_wins:
+    if maria > ben:
         return "Maria"
